@@ -77,5 +77,5 @@ plt.ylabel("Transacciones por segundo (TPS)")
 plt.legend()
 plt.grid(True)
 
-plt.savefig("resultados/grafica.png", dpi=300)
+plt.savefig("resultados/grafica2.png", dpi=300)
 plt.show()
