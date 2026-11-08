@@ -1,0 +1,98 @@
+
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f4f8;
+    color: #222;
+}
+
+/* Encabezado */
+
+header {
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+/* Contenido principal */
+
+main {
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+/* Formula */
+
+.formula {
+    background-color: #e8efff;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Tarjetas de resultados */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tarjeta {
+    background-color: #e8efff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.tarjeta p {
+    font-size: 25px;
+    font-weight: bold;
+    color: #172554;
+}
+
+/* Grafica */
+
+.grafica img {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* Pie de pagina */
+
+footer {
+    background-color: #172554;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Adaptacion a celulares */
+
+@media (max-width: 600px) {
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
