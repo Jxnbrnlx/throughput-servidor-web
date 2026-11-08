@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rendimiento Maximo de Throughput</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Rendimiento Maximo de Throughput</h1>
+        <p>Analisis matematico del rendimiento de un servidor web</p>
+    </header>
+
+    <main>
+
+        <section class="introduccion">
+            <h2>¿Que es el Throughput?</h2>
+
+            <p>
+                El throughput representa la cantidad de transacciones
+                que un servidor puede procesar por segundo.
+
+                Nuestro objetivo es encontrar la cantidad optima
+                de hilos concurrentes para obtener el mayor rendimiento.
+            </p>
+        </section>
+
+        <section class="modelo">
+            <h2>Modelo matematico</h2>
+
+            <p>
+                Utilizamos la siguiente funcion para representar
+                el comportamiento del servidor:
+            </p>
+
+            <div class="formula">
+                T(x) = 500x / (1 + 0.0025x²)
+            </div>
+
+            <p>
+                Donde x representa los hilos concurrentes
+                y T(x) representa las transacciones por segundo.
+            </p>
+        </section>
+
+        <section class="resultados">
+            <h2>Resultados de la simulacion</h2>
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+                    <h3>Hilos optimos</h3>
+                    <p>20</p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Rendimiento maximo</h3>
+                    <p>5000 TPS</p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Primera derivada</h3>
+                    <p>0</p>
+                </div>
+
+                <div class="tarjeta">
+                    <h3>Segunda derivada</h3>
+                    <p>-12.5</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="grafica">
+            <h2>Grafica del rendimiento</h2>
+
+            <p>
+                Se observa como el rendimiento aumenta hasta alcanzar
+                su maximo en 20 hilos y posteriormente disminuye.
+            </p>
+
+            <img src="../resultados/grafica.png"
+                 alt="Grafica del rendimiento del servidor web">
+        </section>
+
+        <section class="conclusion">
+            <h2>Conclusion</h2>
+
+            <p>
+                Mediante el uso de calculo diferencial encontramos
+                que el rendimiento maximo del modelo se alcanza
+                con 20 hilos concurrentes, procesando 5000
+                transacciones por segundo.
+            </p>
+
+            <p>
+                La segunda derivada negativa confirma que
+                el punto encontrado corresponde a un maximo.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Proyecto Final de Calculo Diferencial - Universidad de La Salle</p>
+        <p>Ingenieria de Software</p>
+    </footer>
+
+</body>
+</html>
