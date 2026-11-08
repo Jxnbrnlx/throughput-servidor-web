@@ -5,114 +5,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Rendimiento Maximo de Throughput</title>
-
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Rendimiento Maximo de Throughput</h1>
-        <p>Analisis matematico del rendimiento de un servidor web</p>
-    </header>
+<header>
+    <h1>Rendimiento Maximo de Throughput</h1>
+    <p>Analisis matematico del rendimiento de un servidor web</p>
+</header>
 
-    <main>
+<main>
 
-        <section class="introduccion">
-            <h2>¿Que es el Throughput?</h2>
+    <section class="introduccion">
+        <h2>¿Que es el Throughput?</h2>
+        <p>
+            El throughput representa la cantidad de transacciones
+            que un servidor puede procesar por segundo.
+            El objetivo es encontrar la cantidad optima de hilos
+            concurrentes para obtener el mayor rendimiento.
+        </p>
+    </section>
 
-            <p>
-                El throughput representa la cantidad de transacciones
-                que un servidor puede procesar por segundo.
+    <section class="procesador">
+        <h2>Procesador de referencia</h2>
+        <h3>Intel Core i9-13900T</h3>
 
-                Nuestro objetivo es encontrar la cantidad optima
-                de hilos concurrentes para obtener el mayor rendimiento.
-            </p>
-        </section>
+        <p><strong>Nucleos:</strong> 24</p>
+        <p><strong>Hilos:</strong> 32</p>
+        <p><strong>CPU Mark:</strong> 42839</p>
+        <p><strong>TDP tipico:</strong> 35 W</p>
 
-        <section class="modelo">
-            <h2>Modelo matematico</h2>
+        <p>
+            Los datos del procesador se consultaron en PassMark.
+            Este modelo tambien se encuentra disponible en equipos
+            como el Lenovo ThinkCentre M90q Gen 4.
+        </p>
 
-            <p>
-                Utilizamos la siguiente funcion para representar
-                el comportamiento del servidor:
-            </p>
+        <p>
+            <a href="https://www.cpubenchmark.net/cpu.php?cpu=Intel+Core+i9-13900T&id=5154"
+               target="_blank">
+                Consultar ficha del procesador en PassMark
+            </a>
+        </p>
+    </section>
 
-            <div class="formula">
-                T(x) = 500x / (1 + 0.0025x²)
+    <section class="modelo">
+        <h2>Modelo matematico</h2>
+
+        <p>
+            Se utiliza una funcion hipotetica para representar
+            el comportamiento del throughput:
+        </p>
+
+        <div class="formula">
+            T(x) = 1000x / (1 + (x/32)²)
+        </div>
+
+        <p>
+            Donde x representa los hilos concurrentes
+            y T(x) representa las transacciones por segundo.
+        </p>
+
+        <p>
+            El modelo toma como referencia los 32 hilos del procesador.
+            El parametro 1000 es una constante hipotetica de escala.
+        </p>
+    </section>
+
+    <section class="resultados">
+        <h2>Resultados de la simulacion</h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <h3>Hilos optimos</h3>
+                <p>32</p>
             </div>
 
-            <p>
-                Donde x representa los hilos concurrentes
-                y T(x) representa las transacciones por segundo.
-            </p>
-        </section>
-
-        <section class="resultados">
-            <h2>Resultados de la simulacion</h2>
-
-            <div class="tarjetas">
-
-                <div class="tarjeta">
-                    <h3>Hilos optimos</h3>
-                    <p>20</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Rendimiento maximo</h3>
-                    <p>5000 TPS</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Primera derivada</h3>
-                    <p>0</p>
-                </div>
-
-                <div class="tarjeta">
-                    <h3>Segunda derivada</h3>
-                    <p>-12.5</p>
-                </div>
-
+            <div class="tarjeta">
+                <h3>Rendimiento maximo</h3>
+                <p>16.000 TPS</p>
             </div>
-        </section>
 
-        <section class="grafica">
-            <h2>Grafica del rendimiento</h2>
+            <div class="tarjeta">
+                <h3>Primera derivada</h3>
+                <p>0</p>
+            </div>
 
-            <p>
-                Se observa como el rendimiento aumenta hasta alcanzar
-                su maximo en 20 hilos y posteriormente disminuye.
-            </p>
+            <div class="tarjeta">
+                <h3>Segunda derivada</h3>
+                <p>-15.625</p>
+            </div>
 
-<img src="resultados/grafica.png"
-     alt="Grafica del rendimiento del servidor web">
+        </div>
+    </section>
 
-        </section>
+    <section class="grafica">
+        <h2>Grafica del rendimiento</h2>
 
-        <section class="conclusion">
-            <h2>Conclusion</h2>
+        <p>
+            El rendimiento aumenta hasta alcanzar su maximo
+            en 32 hilos concurrentes. Despues de ese punto,
+            el modelo representa una disminucion del throughput.
+        </p>
 
-            <p>
-                Mediante el uso de calculo diferencial encontramos
-                que el rendimiento maximo del modelo se alcanza
-                con 20 hilos concurrentes, procesando 5000
-                transacciones por segundo.
-            </p>
+        <img
+            src="./resultados/grafica.png"
+            alt="Grafica del throughput estimado del Intel Core i9-13900T"
+            style="display:block; max-width:100%; height:auto; margin:auto;"
+        >
+    </section>
 
-            <p>
-                La segunda derivada negativa confirma que
-                el punto encontrado corresponde a un maximo.
-            </p>
-        </section>
+    <section class="conclusion">
+        <h2>Conclusion</h2>
 
-    </main>
+        <p>
+            Mediante el calculo diferencial se encontro que
+            el modelo alcanza su rendimiento maximo con
+            32 hilos concurrentes, obteniendo 16.000 TPS estimados.
+        </p>
 
-    <footer>
-        <p>Proyecto Final de Calculo Diferencial - Universidad de La Salle</p>
-        <p>Ingenieria de Software</p>
-    </footer>
+        <p>
+            La primera derivada es igual a cero y la segunda
+            derivada es negativa, lo que confirma que el punto
+            corresponde a un maximo local.
+        </p>
+
+        <p>
+            Es importante aclarar que los resultados corresponden
+            a una simulacion matematica y no a una prueba real
+            de rendimiento del procesador.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Proyecto Final de Calculo Diferencial - Universidad de La Salle</p>
+    <p>Ingenieria de Software</p>
+</footer>
 
 </body>
 </html>
